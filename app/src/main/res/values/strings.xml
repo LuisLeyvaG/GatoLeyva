@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GatoLeyva</string>
+    <string name="winner_string">Ganador:</string>
+    <string name="turn_string">Turno:</string>
+    <string name="player_string">Jugador</string>
+    <string name="score_string">Puntaje:</string>
 </resources>

@@ -8,8 +8,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="gray">#595959</color>
+    <color name="gray">#C5CAE6</color>
 
+
+    /* Paleta de colores */
+
+    <color name="color_a">#0048B5</color>
+    <color name="color_b">#002F75</color>
+    <color name="color_c">#0161F5</color>
+    <color name="color_c_dark">#58606E</color>
+    <color name="color_d_buttons">#2F3743</color>
+    <color name="color_d">#001536</color>
+    <color name="color_e">#0058DB</color>
     <color name="water_color">#2196F3</color>
+
     <color name="fire_color">#FF5722</color>
+    <color name="color_f">#F52718</color>
+    <color name="color_g">#A80C00</color>
 </resources>
