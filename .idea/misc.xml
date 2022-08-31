@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Apps/GatoLeyva/app/src/main/res/drawable/borde_00.xml" value="0.1705" />
+        <entry key="..\:/Apps/GatoLeyva/app/src/main/res/drawable/bordes_bg.xml" value="0.1705" />
+        <entry key="..\:/Apps/GatoLeyva/app/src/main/res/drawable/circle.xml" value="0.1705" />
+        <entry key="..\:/Apps/GatoLeyva/app/src/main/res/drawable/cross.xml" value="0.1705" />
+        <entry key="..\:/Apps/GatoLeyva/app/src/main/res/drawable/ic_fire.xml" value="0.1705" />
+        <entry key="..\:/Apps/GatoLeyva/app/src/main/res/drawable/ic_water.xml" value="0.1705" />
         <entry key="..\:/Apps/GatoLeyva/app/src/main/res/layout/activity_main.xml" value="0.335" />
       </map>
     </option>
