@@ -3,5 +3,12 @@
     <string name="winner_string">Ganador:</string>
     <string name="turn_string">Turno:</string>
     <string name="player_string">Jugador</string>
-    <string name="score_string">Puntaje:</string>
+    <string name="element_string">Elemento</string>
+    <string name="score_string">Puntaje</string>
+    <string name="by_luis_leyva">By. Luis Leyva</string>
+    <string name="welcome_string">¡Bienvenid@ a Gato!</string>
+    <string name="players_string">Ingresa el nombre de los jugadores</string>
+    <string name="player1_string">Jugador 1: </string>
+    <string name="player2_string">Jugador 2: </string>
+    <string name="ready_string">Listos</string>
 </resources>
