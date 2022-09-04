@@ -13,4 +13,5 @@
     <string name="ready_string">Listos</string>
     <string name="water_string">AGUA</string>
     <string name="fire_string">FUEGO</string>
+    <string name="okay_string">OKAY</string>
 </resources>

@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         initScreenGame()
 
+        resetBoard()
+
     }
 
     private fun initScreenGame() {
@@ -78,9 +80,6 @@ class MainActivity : AppCompatActivity() {
                 iv.setLayoutParams(layoutParams)
             }
         }
-
-
-        resetBoard()
     }
 
     public fun pressReady(v: View) {
@@ -108,8 +107,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startGame() {
-        binding.tvPlayer1.text = player1
-        binding.tvPlayer2.text = player2
+        binding.tvPlayer1.text = this.player1
+        binding.tvPlayer2.text = this.player2
 
         if ((Math.random()*2).toInt() == 1) {
             binding.tvElement1.text = getString(R.string.fire_string)
@@ -252,59 +251,35 @@ class MainActivity : AppCompatActivity() {
         var i: Int = 0
         var j: Int = 0
 
-        // COLUMNA 1
+        // COLUMNAS
+
         elem = 1
-        condicion = board[i][j] == elem && board[i][j+1] == elem && board[i][j+2] == elem
-        proveWin(elem, condicion)
+
+        for (i in 0 until 3) {
+            condicion = board[i][j] == elem && board[i][j+1] == elem && board[i][j+2] == elem
+            proveWin(elem, condicion)
+        }
 
         elem = 2
-        condicion = board[i][j] == elem && board[i][j+1] == elem && board[i][j+2] == elem
-        proveWin(elem, condicion)
 
-        // COLUMNA 2
+        for (i in 0 until 3) {
+            condicion = board[i][j] == elem && board[i][j+1] == elem && board[i][j+2] == elem
+            proveWin(elem, condicion)
+        }
+
+        // FILAS
+
         elem = 1
-        condicion = board[i+1][j] == elem && board[i+1][j+1] == elem && board[i+1][j+2] == elem
-        proveWin(elem, condicion)
+        for (j in 0 until 3) {
+            condicion = board[i][j] == elem && board[i+1][j] == elem && board[i+2][j] == elem
+            proveWin(elem, condicion)
+        }
 
         elem = 2
-        condicion = board[i+1][j] == elem && board[i+1][j+1] == elem && board[i+1][j+2] == elem
-        proveWin(elem, condicion)
-
-        // COLUMNA 3
-        elem = 1
-        condicion = board[i+2][j] == elem && board[i+2][j+1] == elem && board[i+2][j+2] == elem
-        proveWin(elem, condicion)
-
-        elem = 2
-        condicion = board[i+2][j] == elem && board[i+2][j+1] == elem && board[i+2][j+2] == elem
-        proveWin(elem, condicion)
-
-        // FILA 1
-        elem = 1
-        condicion = board[i][j] == elem && board[i+1][j] == elem && board[i+2][j] == elem
-        proveWin(elem, condicion)
-
-        elem = 2
-        condicion = board[i][j] == elem && board[i+1][j] == elem && board[i+2][j] == elem
-        proveWin(elem, condicion)
-
-        // FILA 2
-        elem = 1
-        condicion = board[i][j+1] == elem && board[i+1][j+1] == elem && board[i+2][j+1] == elem
-        proveWin(elem, condicion)
-
-        elem = 2
-        condicion = board[i][j+1] == elem && board[i+1][j+1] == elem && board[i+2][j+1] == elem
-        proveWin(elem, condicion)
-
-        // FILA 3
-        elem = 1
-        condicion = board[i][j+2] == elem && board[i+1][j+2] == elem && board[i+2][j+2] == elem
-        proveWin(elem, condicion)
-
-        elem = 2
-        condicion = board[i][j+2] == elem && board[i+1][j+2] == elem && board[i+2][j+2] == elem
-        proveWin(elem, condicion)
+        for (j in 0 until 3) {
+            condicion = board[i][j] == elem && board[i+1][j] == elem && board[i+2][j] == elem
+            proveWin(elem, condicion)
+        }
 
         // DIAGONAL TL/BR
         elem = 1
@@ -332,10 +307,22 @@ class MainActivity : AppCompatActivity() {
             if (binding.tvElement1.text == getString(R.string.fire_string)) {
                 this.fireWins++
                 binding.tvScore1.text = this.fireWins.toString()
+                binding.tvWin.text = "Ha ganado ${binding.tvPlayer1.text}!"
             } else if (binding.tvElement2.text == getString(R.string.fire_string)) {
                 this.fireWins++
                 binding.tvScore2.text = this.fireWins.toString()
+                binding.tvWin.text = "Ha ganado ${binding.tvPlayer2.text}!"
             }
+
+            var iv: ImageView
+            for (i in 0 until 3) {
+                for (j in 0 until 3) {
+                    iv = findViewById(resources.getIdentifier("v$i$j", "id", packageName))
+                    iv.setOnClickListener(null)
+                }
+            }
+
+            binding.rlWin.visibility = RelativeLayout.VISIBLE
 
         } else if (condicion && elem == 2) {
 
@@ -343,10 +330,22 @@ class MainActivity : AppCompatActivity() {
             if (binding.tvElement1.text == getString(R.string.water_string)) {
                 this.waterWins++
                 binding.tvScore1.text = this.waterWins.toString()
+                binding.tvWin.text = "Ha ganado ${binding.tvPlayer1.text}!"
             } else if (binding.tvElement2.text == getString(R.string.water_string)) {
                 this.waterWins++
                 binding.tvScore2.text = this.waterWins.toString()
+                binding.tvWin.text = "Ha ganado ${binding.tvPlayer2.text}!"
             }
+
+            var iv: ImageView
+            for (i in 0 until 3) {
+                for (j in 0 until 3) {
+                    iv = findViewById(resources.getIdentifier("v$i$j", "id", packageName))
+                    iv.setOnClickListener(null)
+                }
+            }
+
+            binding.rlWin.visibility = RelativeLayout.VISIBLE
 
         }
 
@@ -354,6 +353,31 @@ class MainActivity : AppCompatActivity() {
             binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_fire))
         } else if (this.waterWins > this.fireWins) {
             binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_water))
+        } else {
+            binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_none))
+        }
+    }
+
+    public fun closeWin(v: View) {
+        binding.rlWin.visibility = RelativeLayout.GONE
+        resetBoard()
+        initBoard()
+
+        var iv: ImageView
+
+        for (i in 0 until 3) {
+            for (j in 0 until 3) {
+                iv = findViewById(resources.getIdentifier("v$i$j", "id", packageName))
+                iv.setOnClickListener {
+
+                    drawPosition(i, j)
+
+                    checkWin()
+
+                    checkDraw()
+
+                }
+            }
         }
     }
 

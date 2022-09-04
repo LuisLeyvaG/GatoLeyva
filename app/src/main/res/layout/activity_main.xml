@@ -128,6 +128,58 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/rlWin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:visibility="gone"
+        android:translationZ="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48000002">
+
+        <LinearLayout
+            android:id="@+id/lyWin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="40dp"
+            android:background="@drawable/rl_start_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvWin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/players_string"
+                android:textColor="@color/white"
+                android:fontFamily="@font/fn_aloevera"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/okay_string"
+                android:backgroundTint="@color/color_c_dark"
+                android:padding="10dp"
+                android:onClick="closeWin"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
