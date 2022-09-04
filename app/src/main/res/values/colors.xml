@@ -19,6 +19,7 @@
     <color name="color_c">#0161F5</color>
     <color name="color_c_dark">#58606E</color>
     <color name="color_d_buttons">#2F3743</color>
+    <color name="color_d_buttons_alpha">#992F3743</color>
     <color name="color_d_dark">#29303A</color>
     <color name="color_d">#001536</color>
     <color name="color_e">#0058DB</color>

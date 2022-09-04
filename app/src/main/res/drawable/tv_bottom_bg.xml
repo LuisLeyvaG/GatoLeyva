@@ -6,7 +6,7 @@
 
             <stroke android:width="2dp" android:color="@color/black"/>
 
-            <solid android:color="@color/color_d_buttons"/>
+            <solid android:color="@color/color_d_buttons_alpha"/>
 
         </shape>
     </item>
