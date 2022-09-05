@@ -301,17 +301,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun proveWin(elem: Int, condicion: Boolean) {
-        if (condicion && elem == 1) {
+        if (condicion) {
+            if (elem == 1) {
 
-            Toast.makeText(this, "GANO FUEGO!", Toast.LENGTH_SHORT).show()
-            if (binding.tvElement1.text == getString(R.string.fire_string)) {
-                this.fireWins++
-                binding.tvScore1.text = this.fireWins.toString()
-                binding.tvWin.text = "Ha ganado ${binding.tvPlayer1.text}!"
-            } else if (binding.tvElement2.text == getString(R.string.fire_string)) {
-                this.fireWins++
-                binding.tvScore2.text = this.fireWins.toString()
-                binding.tvWin.text = "Ha ganado ${binding.tvPlayer2.text}!"
+                Toast.makeText(this, "GANO FUEGO!", Toast.LENGTH_SHORT).show()
+                if (binding.tvElement1.text == getString(R.string.fire_string)) {
+                    this.fireWins++
+                    binding.tvScore1.text = this.fireWins.toString()
+                    binding.tvWin.text = "Ha ganado ${binding.tvPlayer1.text}!"
+                } else if (binding.tvElement2.text == getString(R.string.fire_string)) {
+                    this.fireWins++
+                    binding.tvScore2.text = this.fireWins.toString()
+                    binding.tvWin.text = "Ha ganado ${binding.tvPlayer2.text}!"
+                }
+            } else if (elem == 2) {
+
+                Toast.makeText(this, "GANO AGUA!", Toast.LENGTH_SHORT).show()
+                if (binding.tvElement1.text == getString(R.string.water_string)) {
+                    this.waterWins++
+                    binding.tvScore1.text = this.waterWins.toString()
+                    binding.tvWin.text = "Ha ganado ${binding.tvPlayer1.text}!"
+                } else if (binding.tvElement2.text == getString(R.string.water_string)) {
+                    this.waterWins++
+                    binding.tvScore2.text = this.waterWins.toString()
+                    binding.tvWin.text = "Ha ganado ${binding.tvPlayer2.text}!"
+                }
             }
 
             var iv: ImageView
@@ -324,37 +338,13 @@ class MainActivity : AppCompatActivity() {
 
             binding.rlWin.visibility = RelativeLayout.VISIBLE
 
-        } else if (condicion && elem == 2) {
-
-            Toast.makeText(this, "GANO AGUA!", Toast.LENGTH_SHORT).show()
-            if (binding.tvElement1.text == getString(R.string.water_string)) {
-                this.waterWins++
-                binding.tvScore1.text = this.waterWins.toString()
-                binding.tvWin.text = "Ha ganado ${binding.tvPlayer1.text}!"
-            } else if (binding.tvElement2.text == getString(R.string.water_string)) {
-                this.waterWins++
-                binding.tvScore2.text = this.waterWins.toString()
-                binding.tvWin.text = "Ha ganado ${binding.tvPlayer2.text}!"
+            if (this.fireWins > this.waterWins) {
+                binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_fire))
+            } else if (this.waterWins > this.fireWins) {
+                binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_water))
+            } else {
+                binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_none))
             }
-
-            var iv: ImageView
-            for (i in 0 until 3) {
-                for (j in 0 until 3) {
-                    iv = findViewById(resources.getIdentifier("v$i$j", "id", packageName))
-                    iv.setOnClickListener(null)
-                }
-            }
-
-            binding.rlWin.visibility = RelativeLayout.VISIBLE
-
-        }
-
-        if (this.fireWins > this.waterWins) {
-            binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_fire))
-        } else if (this.waterWins > this.fireWins) {
-            binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_water))
-        } else {
-            binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_none))
         }
     }
 
