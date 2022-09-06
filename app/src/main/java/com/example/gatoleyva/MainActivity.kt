@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
                 val layoutParams: ViewGroup.LayoutParams = iv.getLayoutParams()
                 layoutParams.height = height
-                layoutParams.width = width
+                layoutParams.width = width_cell.toInt()
                 iv.setLayoutParams(layoutParams)
             }
         }
