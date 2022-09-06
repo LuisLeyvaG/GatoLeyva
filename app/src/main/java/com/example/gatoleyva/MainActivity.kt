@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private var waterWins = 0
     private var fireWins = 0
 
+    private var win = false
+
     private lateinit var board: Array<IntArray>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -138,6 +140,8 @@ class MainActivity : AppCompatActivity() {
                     drawPosition(i, j)
 
                     checkWin()
+
+                    checkDraw()
 
                 }
             }
@@ -345,6 +349,8 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.ivWinner.setImageDrawable(getDrawable(R.drawable.ic_none))
             }
+
+            win = true
         }
     }
 
@@ -362,6 +368,7 @@ class MainActivity : AppCompatActivity() {
 
                     drawPosition(i, j)
 
+                    win = false
                     checkWin()
 
                     checkDraw()
@@ -382,8 +389,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        if (contador == 9) {
+        if (contador == 9 && !win) {
             Toast.makeText(this, "EMPATE", Toast.LENGTH_SHORT).show()
+            resetBoard()
+            initBoard()
         }
     }
 
